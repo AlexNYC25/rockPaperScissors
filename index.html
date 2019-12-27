@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function computerPlay() {
+            let randNum = Math.floor(Math.random() * 3)
+
+            if(randNum === 0){
+                return 'Rock'
+            }
+            if(randNum === 1){
+                return 'Paper'
+            }
+            if(randNum === 2){
+                return 'Scissors'
+            }
+
+        }
+
+        function playRound(playerSelection, computerSelection){
+            let playerChoice = playerSelection.toUpperCase();
+            let computerChoice = computerSelection.toUpperCase();
+
+            if(playerChoice === computerChoice){
+                return `It's a draw!`
+            }
+
+            if(playerChoice === 'ROCK' && (computerChoice === 'SCISSORS')){
+                return `You win! Rock beats Scissors`;
+            } else {
+                return `You Lose! Paper beats Rock`
+            }
+
+            if(playerChoice === 'PAPER' && (computerChoice === 'ROCK')){
+                return `You Win! Paper beats Rock`
+            } else {
+                return `You Lose! Scissors beats Paper`
+            }
+
+            if(playerChoice === 'SCISSORS' && (computerChoice === 'PAPER')){
+                return 'You Win! Scissors beats Paper'
+            } else {
+                return 'You Lose! Rock beats Scissors'
+            }
+
+            return `Invalid input`
+        }
+
+        function game(){
+            for(let x = 0; x < 5; x++){
+                let playerSelection = prompt("What do you pick")
+                const computerSelection = computerPlay()
+                console.log(playRound(playerSelection, computerSelection))
+            }
+        }
+
+        game();
+
+
+    </script>
+
+</html>
